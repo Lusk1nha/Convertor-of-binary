@@ -31,7 +31,7 @@ body {
   background-color: white;
 
   max-width: 900px;
-  min-width: 375px;
+  min-width: 320px;
   width: 80%;
   height: 500px;
 
@@ -57,7 +57,7 @@ header {
   align-items: center;
   justify-content: center;
 
-  font-size: 1em;
+  font-size: 0.85em;
   font-weight: 500;
   letter-spacing: 0.7px;
 
