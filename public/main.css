@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,200&display=swap');
+
+* {
+  box-sizing: border-box;
+
+  margin: 0;
+  padding: 0;
+
+  font-family: 'Poppins', sans-serif;
+
+  text-rendering: optimizeLegibility !important;
+  -webkit-font-smoothing: antialiased;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+
+}
+
+body {
+  background-color: rgb(100, 44, 204);
+
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 100px 0;
+
+}
+
+#container {
+  background-color: white;
+
+  max-width: 900px;
+  min-width: 375px;
+  width: 80%;
+  height: 500px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+
+  padding: 30px 15px;
+
+  border-radius: 16px;
+  box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.1);
+
+  transition: all 0.6s;
+
+}
+
+header {
+  width: 90%;
+  height: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 1em;
+  font-weight: 500;
+  letter-spacing: 0.7px;
+
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+
+  margin: 70px 0px 40px;
+  padding-bottom: 30px;
+
+}
+
+main {
+  width: 90%;
+  height: 130px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 50px;
+
+}
+
+.conversor {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+
+  margin: 10px 0;
+  padding: 0 10px;
+
+}
+
+.conversor label {
+  font-size: 1em;
+  font-weight: 200;
+  margin-right: 20px;
+
+}
+
+.conversor .labels.answer {
+  margin-right: 10px;
+
+}
+
+.conversor input {
+  background-color: whitesmoke;
+  width: 100%;
+
+  font-size: 1em;
+  letter-spacing: 0.8px;
+  padding: 15px 10px;
+
+  border: 1px solid whitesmoke;
+  border-radius: 12px;
+  outline: none;
+
+}
+
+button.button-converter {
+  background-color: rgb(27, 170, 27);
+
+  width: 90%;
+  height: 50px;
+
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 1px;
+  color: white;
+
+  border-radius: 16px;
+  border: none;
+  outline: none;
+
+  transition: color 0.4s;
+
+}
+
+.button-converter:hover {
+  background-color: rgb(19, 150, 19);
+
+}
+
+@media screen and (min-width: 650px) {
+  header {
+    font-size: 1.4em;
+
+  }
+
+}
