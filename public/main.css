@@ -8,9 +8,9 @@
 
   font-family: 'Poppins', sans-serif;
 
-  text-rendering: optimizeLegibility !important;
+  text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
-  text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.008);
 
 }
 
@@ -20,6 +20,7 @@ body {
   min-height: 70vh;
 
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 
@@ -32,7 +33,7 @@ body {
 
   min-width: 200px;
   max-width: 900px;
-  width: 90%;
+  width: 70%;
   height: 560px;
 
   display: flex;
@@ -51,20 +52,47 @@ body {
 
 header {
   width: 90%;
-  height: 50px;
+  height: 140px;
 
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+
+  margin: 10px 0px 40px;
+  padding-bottom: 30px;
+
+}
+
+.toggle-mode {
+  max-width: 700px;
+  width: 40%;
+  height: 80px;
+
+  margin-bottom: 30px;
+
+  border: none;
+  border-radius: 8px;
+  outline: none;
+
+  transition: all 0.3s;
+
+  cursor: pointer;
+
+}
+
+.toggle-mode:hover {
+  background-color: rgb(231, 231, 231);
+  box-shadow: 0 0 7px rgb(231, 231, 231);
+
+}
+
+.header-title {
   font-size: 1.3em;
   font-weight: 600;
   letter-spacing: 0.7px;
-
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-
-  margin: 70px 0px 40px;
-  padding-bottom: 30px;
 
 }
 
@@ -147,7 +175,7 @@ input[type=number] {
 }
 
 button.button-converter {
-  background-color: rgb(27, 170, 27);
+  background-color: white;
 
   width: 90%;
   height: 50px;
@@ -155,21 +183,23 @@ button.button-converter {
   font-size: 1rem;
   font-weight: 400;
   letter-spacing: 1px;
-  color: white;
+  color: rgb(26, 167, 26);
 
   border-radius: 16px;
-  border: none;
+  border: 1px solid rgb(26, 167, 26);
   outline: none;
   
-  transition: color 0.4s;
+  transition:  all 0.4s;
 
   cursor: pointer;
   
 }
 
 .button-converter:hover {
-  background-color: rgb(19, 150, 19);
-  box-shadow: 0 0 7px rgb(19, 150, 19);
+  color: white;
+
+  background-color: rgb(26, 167, 26);
+  box-shadow: 0 0 7px rgb(26, 167, 26);
   
 }
 

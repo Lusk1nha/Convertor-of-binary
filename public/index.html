@@ -7,20 +7,24 @@
 
     <link rel="stylesheet" href="./main.css">
     <link rel="shortcut icon" href="./assets/binary.svg">
+
   </head>
 
   <body>
-    <div class="toggle-mode toDecimal"></div>
-
+    
     <div id="container">
-      <header class="header-text">Binário para Decimal</header>
-      <main class="binary-converter-container">
-          <div class="conversor binary">
+      <header>
+        <button class="toggle-mode binary" type="button">Mudar</button>
+        <h4 class="header-title">Binário para Decimal</h4>
+      </header>
+
+      <main class="converter-container">
+          <div class="conversor response">
             <label class="labels response" for="response">Binário</label>
             <input class="numeric-input" name="response" type="number" placeholder="Coloque o número Binário aqui">
           </div>
 
-          <div class="conversor decimal">
+          <div class="conversor answer">
             <label class="labels answer" for="answer">Decimal</label>
             <input class="numeric-input" type="number" placeholder="Resultado" disabled>
           </div>
@@ -28,5 +32,7 @@
       
       <button class="button-converter">Converter</button>
     </div>
+
+    <script src="./index.js"></script>
   </body>
 </html>
