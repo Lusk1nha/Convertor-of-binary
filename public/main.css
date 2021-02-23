@@ -20,7 +20,6 @@ body {
   min-height: 70vh;
 
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
 
@@ -33,7 +32,7 @@ body {
 
   min-width: 200px;
   max-width: 900px;
-  width: 70%;
+  width: 90%;
   height: 560px;
 
   display: flex;
@@ -68,6 +67,7 @@ header {
 
 .toggle-mode {
   max-width: 700px;
+  min-width: 200px;
   width: 40%;
   height: 80px;
 
