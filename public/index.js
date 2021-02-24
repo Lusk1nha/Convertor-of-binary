@@ -9,6 +9,10 @@ toggleButton.addEventListener('click', () => {
   const responseInput = document.querySelector('.conversor.response input')
 
   const answerLabel = document.querySelector('.labels.answer')
+  const answerInput = document.querySelector('.conversor.answer input')
+
+  responseInput.value = ''
+  answerInput.value = ''
 
   if ( numberIndex % 2 == 0 ) {
     headerTitle.innerText = 'Binário para Decimal'
@@ -44,26 +48,52 @@ toggleButton.addEventListener('click', () => {
 
 const convertButton = document.querySelector('.button-converter')
 convertButton.addEventListener('click', () => {
-  const responseInput = document.querySelector('.conversor.response input').value
-  
+  const responseValue = document.querySelector('.conversor.response input').value
+  const answerInput = document.querySelector('.conversor.answer input')
+
   if (validationChecking()) return
 
   if ( isBinary ) {
     if (checkingCorrectBinaryNumber()) return
-    return console.log('Converting in Decimal number')
+
+    let decimalAnswer = 0
+    let finalIndex = responseValue.length - 1
+    for ( binaryNumber of responseValue ) {
+      decimalAnswer += binaryNumber * 2 ** finalIndex
+      finalIndex--
+
+    }
+
+    return answerInput.value = decimalAnswer
   }
 
-  return console.log('Converting in Binary number')
+  let binaryAnswer = ''
+  let test = responseValue
+  for ( let i = 0; i < 10; i++) {
+    let quotient = parseInt(test / 2)
+    let remainder = test % 2
+
+    if ( remainder == 0 ) binaryAnswer += 0
+    else binaryAnswer += 1
+    
+    test = quotient
+    
+    if (quotient == 0) break
+
+  }
+
+  binaryAnswer = binaryAnswer.split('').reverse().join('')
+  return answerInput.value = binaryAnswer
 
   function validationChecking() {
-    if ( !responseInput ) {
+    if ( !responseValue ) {
       console.log('error input without any numbers')
       return true
     }
   }
 
   function checkingCorrectBinaryNumber() {
-    for ( let number of responseInput ) {
+    for ( let number of responseValue ) {
       if ( number != '0' & number != '1') {
         console.log('Invalid binary number')
         return true
