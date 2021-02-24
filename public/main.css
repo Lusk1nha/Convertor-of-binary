@@ -131,13 +131,20 @@ main {
 
 }
 
-.conversor.binary input {
+.conversor.response input {
   letter-spacing: 0.2em;
 
 }
 
-.conversor.decimal input {
-  font-weight: 400;
+.conversor.response input.error {
+  border: 1px solid red;
+
+}
+
+.conversor.answer input {
+  color: rgb(26, 167, 26);
+  font-weight: 500;
+  font-size: 1em;
   letter-spacing: 0.05em;
 
 }

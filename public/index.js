@@ -10,7 +10,7 @@ toggleButton.addEventListener('click', () => {
 
   const answerLabel = document.querySelector('.labels.answer')
   const answerInput = document.querySelector('.conversor.answer input')
-
+  
   responseInput.value = ''
   answerInput.value = ''
 
@@ -26,6 +26,7 @@ toggleButton.addEventListener('click', () => {
     toggleButton.classList.add('binary')
     
     isBinary = true
+
   } else {
     headerTitle.innerText = 'Decimal para Binário'
 
@@ -38,38 +39,58 @@ toggleButton.addEventListener('click', () => {
     toggleButton.classList.add('decimal')
 
     isBinary = false
+
   }
   
   return numberIndex++
 })
 
 
-
-
 const convertButton = document.querySelector('.button-converter')
+
 convertButton.addEventListener('click', () => {
-  const responseValue = document.querySelector('.conversor.response input').value
+  const responseValue = document.querySelector('.conversor.response input')
   const answerInput = document.querySelector('.conversor.answer input')
 
-  if (validationChecking()) return
+  console.log()
+  if ( !responseValue.valeu ) {
+    console.log('error input without any numbers')
+    console.log(responseValue)
+    
+    responseValue.classList.add('error')
 
-  if ( isBinary ) {
-    if (checkingCorrectBinaryNumber()) return
-
-    let decimalAnswer = 0
-    let finalIndex = responseValue.length - 1
-    for ( binaryNumber of responseValue ) {
-      decimalAnswer += binaryNumber * 2 ** finalIndex
-      finalIndex--
-
-    }
-
-    return answerInput.value = decimalAnswer
+    return true
   }
 
+  if ( isBinary ) return answerInput.value = binaryMath(responseValue.value)
+  else return answerInput.value = decimalMath(responseValue.value)
+})
+
+
+function binaryMath(value) {
+  for ( let number of value ) {
+    if ( number != '0' & number != '1') {
+      console.log('Invalid binary number')
+      return true
+    }
+  }
+
+  let decimalAnswer = 0
+  let finalIndex = value.length - 1
+  for ( binaryNumber of value ) {
+    decimalAnswer += binaryNumber * 2 ** finalIndex
+    finalIndex--
+
+  }
+
+  return decimalAnswer
+}
+
+function decimalMath(value) {
   let binaryAnswer = ''
-  let test = responseValue
-  for ( let i = 0; i < 10; i++) {
+  let test = value
+
+  while ( true ) {
     let quotient = parseInt(test / 2)
     let remainder = test % 2
 
@@ -82,24 +103,7 @@ convertButton.addEventListener('click', () => {
 
   }
 
-  binaryAnswer = binaryAnswer.split('').reverse().join('')
-  return answerInput.value = binaryAnswer
-
-  function validationChecking() {
-    if ( !responseValue ) {
-      console.log('error input without any numbers')
-      return true
-    }
-  }
-
-  function checkingCorrectBinaryNumber() {
-    for ( let number of responseValue ) {
-      if ( number != '0' & number != '1') {
-        console.log('Invalid binary number')
-        return true
-      }
-    }
-  }
-})
+  return binaryAnswer.split('').reverse().join('')
+}
 
 
