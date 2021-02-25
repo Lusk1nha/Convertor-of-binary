@@ -45,39 +45,36 @@ toggleButton.addEventListener('click', () => {
   return numberIndex++
 })
 
-
 const convertButton = document.querySelector('.button-converter')
 
 convertButton.addEventListener('click', () => {
   const responseValue = document.querySelector('.conversor.response input')
   const answerInput = document.querySelector('.conversor.answer input')
 
-  console.log()
-  if ( !responseValue.valeu ) {
-    console.log('error input without any numbers')
-    console.log(responseValue)
-    
-    responseValue.classList.add('error')
-
-    return true
+  if ( !responseValue.value ) {
+    responseValue.placeholder = 'Ocorreu um erro, a caixa de entrada está vázia'
+    return responseValue.classList.add('error')
   }
 
-  if ( isBinary ) return answerInput.value = binaryMath(responseValue.value)
+  responseValue.classList.remove('error')
+  if ( isBinary ) return answerInput.value = binaryMath(responseValue)
   else return answerInput.value = decimalMath(responseValue.value)
 })
 
 
-function binaryMath(value) {
-  for ( let number of value ) {
+function binaryMath(responseInput) {
+  for ( let number of responseInput.value ) {
     if ( number != '0' & number != '1') {
-      console.log('Invalid binary number')
-      return true
+      responseInput.value = ''
+      responseInput.placeholder = "Ocorreu um erro, por favor somente 1 e 0"
+      return responseInput.classList.add('error')
+
     }
   }
 
   let decimalAnswer = 0
-  let finalIndex = value.length - 1
-  for ( binaryNumber of value ) {
+  let finalIndex = responseInput.value.length - 1
+  for ( binaryNumber of responseInput.value ) {
     decimalAnswer += binaryNumber * 2 ** finalIndex
     finalIndex--
 
@@ -88,16 +85,16 @@ function binaryMath(value) {
 
 function decimalMath(value) {
   let binaryAnswer = ''
-  let test = value
+  let defaultValue = value
 
   while ( true ) {
-    let quotient = parseInt(test / 2)
-    let remainder = test % 2
+    let quotient = parseInt(defaultValue / 2)
+    let remainder = defaultValue % 2
 
     if ( remainder == 0 ) binaryAnswer += 0
     else binaryAnswer += 1
     
-    test = quotient
+    defaultValue = quotient
     
     if (quotient == 0) break
 

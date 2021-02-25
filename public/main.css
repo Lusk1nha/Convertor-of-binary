@@ -137,9 +137,16 @@ main {
 }
 
 .conversor.response input.error {
-  border: 1px solid red;
+  box-shadow: 0px 0px 10px -2px red;
 
 }
+
+.conversor.response input.error::placeholder {
+  color: red;
+  font-size: 1.1em;
+
+}
+
 
 .conversor.answer input {
   color: rgb(26, 167, 26);
